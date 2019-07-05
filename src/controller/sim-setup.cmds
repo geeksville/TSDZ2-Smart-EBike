@@ -1,0 +1,6 @@
+# set opt debug 1
+set hw simif rom 0xffff
+
+# Unset the brake
+pc_pins.6 = 1
+

@@ -14,6 +14,7 @@
 #include "stm8s_flash.h"
 #include "main.h"
 #include "lcd.h"
+#include "common/simif.h"
 
 static uint8_t array_default_values [EEPROM_BYTES_STORED] = {
   KEY,
@@ -548,6 +549,9 @@ static void eeprom_write_array (uint8_t *p_array, uint8_t ui8_len)
   uint8_t *p_array_data;
   uint8_t array_data_read_back [EEPROM_BYTES_STORED];
   uint8_t ui8_data_written_correctly = 0;
+
+  if(simif_simulated())
+    return; // eeprom writing not yet supported in the simulator
 
   FLASH_SetProgrammingTime(FLASH_PROGRAMTIME_TPROG);
   

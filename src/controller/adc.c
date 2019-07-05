@@ -54,7 +54,8 @@ void adc_init (void)
     adc_trigger();
     
     // wait for end of conversion
-    while(!ADC1_GetFlagStatus(ADC1_FLAG_EOC));
+    if(!simif_simulated())
+      while(!ADC1_GetFlagStatus(ADC1_FLAG_EOC));
   }
 
 
@@ -75,7 +76,8 @@ void adc_init (void)
     adc_trigger();
     
     // wait for end of conversion
-    while(!ADC1_GetFlagStatus(ADC1_FLAG_EOC));
+    if(!simif_simulated())
+      while(!ADC1_GetFlagStatus(ADC1_FLAG_EOC));
     
     ui16_adc_battery_current_offset += UI8_ADC_BATTERY_CURRENT;
   }
@@ -104,7 +106,8 @@ void adc_init (void)
     adc_trigger();
     
     // wait for end of conversion
-    while (!ADC1_GetFlagStatus(ADC1_FLAG_EOC));
+    if(!simif_simulated())
+      while (!ADC1_GetFlagStatus(ADC1_FLAG_EOC));
     
     ui16_adc_pedal_torque_offset += UI8_ADC_TORQUE_SENSOR;
   }

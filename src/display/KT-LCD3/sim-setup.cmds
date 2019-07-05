@@ -1,0 +1,9 @@
+# set opt debug 1
+set hw simif rom 0xffff
+
+# unpress on button
+pg_pins.1 = 0
+# unpress up button
+pb_pins.1 = 1
+# unpress down button
+pb_pins.2 = 1

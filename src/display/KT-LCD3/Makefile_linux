@@ -36,6 +36,7 @@ EXTRASRCS = \
 	$(SDIR)/stm8s_tim3.c \
 	$(SDIR)/stm8s_uart2.c \
 	$(SDIR)/stm8s_flash.c \
+    ../../common/simif.c \
 	gpio.c \
 	ht162.c \
 	adc.c \
